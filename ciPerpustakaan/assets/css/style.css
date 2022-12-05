@@ -255,3 +255,7 @@ input {
     height: 70px;
     border-radius: 100%;
 }
+td a {
+    color: white;
+    text-decoration: none;
+}
