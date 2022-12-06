@@ -27,6 +27,7 @@ class BookTrx extends CI_Controller
     {
         
         $data['members'] = $this->Members->getAll();
+        $data['detail'] = $this->borrowDetail->getAll();
         $data['books'] = $this->Books->getAll();
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules("book_id", 'Book Title', 'required');
@@ -65,9 +66,11 @@ class BookTrx extends CI_Controller
 
     public function edit($id)
     {
-        $data['subscriptions'] = $this->Subscriptions->getAll();
-        $data['subsmember'] = $this->Subsmembers->getById($id);
         $data['members'] = $this->Members->getAll();
+        $data['detail'] = $this->borrowDetail->getAll();
+        
+        $data['books'] = $this->Books->getAll();
+        $data['trx'] = $this->booktrx->getById($id);
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules("member_id", 'Member Name', 'required');
             $this->form_validation->set_rules("subs_id", 'Subscription Title', 'required');
@@ -90,19 +93,19 @@ class BookTrx extends CI_Controller
                     'note' => $this->input->post('note'),
                 ];
                 $this->Subsmembers->update($data, $id);
-                redirect('/Subsmembers');
+                redirect('/BookTrx');
             } else {
                 $this->load->view('template/header');
                 $this->load->view('template/navbar');
                 $this->load->view('template/sidebar');
-                $this->load->view('subsmembers/update', $data);
+                $this->load->view('booktrxs/update', $data);
                 $this->load->view('template/footer');
             }
         } else {
             $this->load->view('template/header');
             $this->load->view('template/navbar');
             $this->load->view('template/sidebar');
-            $this->load->view('subsmembers/update', $data);
+            $this->load->view('booktrxs/update', $data);
             $this->load->view('template/footer');
         }
     }

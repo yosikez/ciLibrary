@@ -1,3 +1,4 @@
+
 <nav class="navbar">
     <div class="nav-brand">
         <i class='bx bx-library bx-sm'></i>
@@ -9,5 +10,8 @@
         <?php } else { ?>
             <a href="<?= base_url('login') ?>">Login</a>
         <?php } ?>
+<?php 
+    $a = getUserSessionData();
+?>
     </div>
 </nav>

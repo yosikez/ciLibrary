@@ -1,5 +1,5 @@
 <div class="header">
-    <h1>Data Trx Member</h1>
+    <h1>Data Trx Books</h1>
     <button><a href="<?= base_url('/BookTrx/add') ?>">Add</a></button>
 </div>
 <div class="isi">
@@ -31,8 +31,8 @@
                     <td><?= $dt->created_at ?></td>
 
                     <td>
-                        <a href="<?= base_url('/Subsmembers/edit') . "/$dt->id" ?>" class="btn btn-warning">Update</a>
-                        <a href="<?= base_url('/Subsmembers/delete') . "/$dt->id" ?>" class="btn btn-danger">Delete</a>
+                        <a href="<?= base_url('/BookTrx/edit') . "/$dt->id" ?>" class="btn btn-warning">Update</a>
+                        <a href="<?= base_url('/BookTrx/delete') . "/$dt->id" ?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

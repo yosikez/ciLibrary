@@ -8,7 +8,9 @@ class Book extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Book_model', 'books');
+        $this->load->model('AuthModel', 'auth');
         $this->load->library('form_validation');
+        $this->auth->isLogin();
     }
 
     public function index()
